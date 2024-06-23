@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
+import com.geeks.mvvm.R
 import com.geeks.mvvm.databinding.FragmentLoveCalculatorBinding
 
 class LoveCalculatorFragment : Fragment() {
@@ -35,6 +37,9 @@ class LoveCalculatorFragment : Fragment() {
             } else {
                 val loveScore = viewModel.calculateLovePercentage(person1, person2)
                 binding.textViewResult.text = "Love Score: $loveScore%"
+            }
+            binding.btnDirection.setOnClickListener{
+                findNavController().navigate(R.id.action_loveCalculatorFragment_to_loveCalculFragment)
             }
         }
     }
